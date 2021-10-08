@@ -19,12 +19,18 @@
     "url": "https://github.com/hrendzha/filmoteka/issues"
   },
   "devDependencies": {
+    "lodash.throttle": "^4.1.1",
     "parcel-bundler": "^1.12.5",
     "parcel-plugin-custom-dist-structure": "^1.1.19",
     "parcel-plugin-handlebars-precompile": "^1.0.2",
     "parcel-plugin-nuke-dist": "^1.0.1",
     "posthtml-include": "^1.6.2",
     "sass": "^1.32.8"
+  },
+  "dependencies": {
+    "axios": "^0.22.0",
+    "basiclightbox": "^5.0.4",
+    "notiflix": "^3.1.0"
   },
   "customDistStructure": {
     "config": {
