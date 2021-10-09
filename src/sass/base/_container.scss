@@ -1,18 +1,22 @@
-// це шаблон тут потрібно змінити під наш макет
 .container {
+  position: relative;
   width: 100%;
-  padding-left: 20px;
-  padding-right: 20px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
+  padding: 0 20px;
 
+  @media screen and (max-width: 479px) {
+    width: 100%;
+  }
   @media screen and (min-width: 480px) {
-    width: 480px;
+    width: 426px;
+    padding: 0 20px;
   }
   @media screen and (min-width: 768px) {
-    width: 768px;
+    width: 700px;
+    padding: 0 60px;
   }
-  @media screen and (min-width: 1280px) {
-    width: 1080px;
+  @media screen and (min-width: 1024px) {
+    width: 1024px;
+    padding: 0 60px;
   }
 }
