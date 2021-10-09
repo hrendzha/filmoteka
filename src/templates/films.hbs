@@ -1,0 +1,12 @@
+<ul class='list-movies'>
+  {{#each this}}
+    <li class='list-movies__block'>
+      <div class='movie' data-id='{{id}}'>
+        <img class='movie__img' src='{{poster_path}}' alt='poster-{{original_title}}' />
+        <h2 class='movie__title'>{{original_title}}</h2>
+        <span class='movie__description'>{{#each}}{{genre_ids}}{{/each}}|{{release_date}}</span>
+      </div>
+    </li>
+
+  {{/each}}
+</ul>
