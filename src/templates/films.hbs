@@ -5,7 +5,7 @@
           <img class='movie__img' src='{{poster_path}}' alt='poster-{{original_title}}'/>
         </div>
         <h2 class='movie__title'>{{original_title}}</h2>
-        <span class='movie__description'>{{#each genre-array}}{{genre}}{{/each}}|{{release_date}}</span>
+        <span class='movie__description'>{{genre}}|{{release_date}}</span>
       </article>
     </li>
 {{/each}}
