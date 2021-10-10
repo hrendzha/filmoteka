@@ -1,16 +1,6 @@
-html {
-  box-sizing: border-box;
-}
-* {
-  box-sizing: inherit;
-}
-
 body {
-  position: relative;
-  display: block;
   background-color: $white-color;
   font-family: $main-font;
-  font-style: normal;
   font-weight: $main-weight;
   font-size: 12px;
   line-height: 1.33;
