@@ -1,12 +1,16 @@
 body {
+  background-color: $white-color;
+  font-family: $main-font;
+  font-weight: $main-weight;
+  font-size: 12px;
+  line-height: 1.33;
+  color: $black-color;
 }
 
 h1,
 h2,
 h3,
 h4,
-h5,
-h6,
 p {
   margin-top: 0;
   margin-bottom: 0;
@@ -22,6 +26,7 @@ ul {
 a {
   text-decoration: none;
   cursor: pointer;
+  color: $footer-text-color;
 }
 
 img {
@@ -33,6 +38,8 @@ img {
 button {
   padding: 0;
   border: none;
+  cursor: pointer;
+  color: $accent-color;
 }
 
 .visually-hidden {
