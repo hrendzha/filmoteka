@@ -1,6 +1,6 @@
 import fetchFilmClass from './fetchFilmClass';
 import filmsCards from '../templates/films.hbs';
-import { Loading } from 'notiflix/build/notiflix-loading-aio';
+import LoaderSpinner from './spinnerClass';
 const listFilms = document.querySelector('.list-movies');
 
 class RenderFilms {
@@ -12,7 +12,7 @@ class RenderFilms {
       const filmsWithGanre = await this.getGanre(films);
       this.renderCards(filmsWithGanre);
     } catch (error) {
-      Loading.hourglass('Временые неполадки');
+      LoaderSpinner.errorSpinner();
       console.log(error);
     }
   }
@@ -46,10 +46,10 @@ class RenderFilms {
   }
   // render
   renderCards(films) {
-    Loading.hourglass();
+    LoaderSpinner.startSpinner();
     listFilms.innerHTML = '';
     listFilms.insertAdjacentHTML('beforeend', filmsCards(films));
-    Loading.remove();
+    LoaderSpinner.removeSpinner();
   }
 }
 
