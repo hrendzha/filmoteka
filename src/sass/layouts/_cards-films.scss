@@ -2,6 +2,8 @@
   cursor: pointer;
 }
 .movie__title {
+  margin-top: 10px;
+  font-family: $main-font;
   text-transform: uppercase;
   font-weight: $main-weight;
   font-size: 12px;

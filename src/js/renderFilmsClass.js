@@ -1,5 +1,6 @@
 import fetchFilmClass from './fetchFilmClass';
 import filmsCards from '../templates/films.hbs';
+import { Loading } from 'notiflix/build/notiflix-loading-aio';
 const listFilms = document.querySelector('.list-movies');
 
 class RenderFilms {
@@ -11,6 +12,7 @@ class RenderFilms {
       const filmsWithGanre = await this.getGanre(films);
       this.renderCards(filmsWithGanre);
     } catch (error) {
+      Loading.hourglass('Временые неполадки');
       console.log(error);
     }
   }
@@ -36,6 +38,7 @@ class RenderFilms {
         film.ganre = ganres;
       }
 
+      film.release_date = film.release_date.slice(0, 4);
       return film;
     });
     const friends = await Promise.all(ganre);
@@ -43,9 +46,13 @@ class RenderFilms {
   }
   // render
   renderCards(films) {
+    Loading.hourglass();
     listFilms.innerHTML = '';
     listFilms.insertAdjacentHTML('beforeend', filmsCards(films));
+    Loading.remove();
   }
 }
 
 export default new RenderFilms();
+const renderFilms = new RenderFilms();
+renderFilms.renderTrendingMovies();
