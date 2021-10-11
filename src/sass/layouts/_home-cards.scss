@@ -1,18 +1,19 @@
 .list-movies {
   display: grid;
-  grid-template-columns: 280px;
-  grid-template-rows: repeat(20, 440px);
+  grid-template-columns: 1fr;
   grid-row-gap: 20px;
   justify-content: center;
 
   @media screen and (min-width: 768px) {
-    grid-template-rows: repeat(10, 440px);
-    grid-template-columns: repeat(2, 295px);
+    grid-template-columns: repeat(2, 1fr);
     grid-gap: 30px;
   }
   @media screen and (min-width: 1024px) {
-    grid-template-rows: repeat(7, 440px);
-    grid-template-columns: repeat(3, 275px);
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  & > li {
+    height: 440px;
   }
 }
 
