@@ -46,7 +46,8 @@
       "images": [
         ".jpg",
         ".png",
-        ".svg"
+        ".svg",
+        ".ico"
       ],
       "fonts": [
         "woff",
