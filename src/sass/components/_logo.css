@@ -1,0 +1,17 @@
+.logo-cl,
+.logo:hover,
+.logo:focus {
+    color: #ffffff;
+}
+
+.logo-cl {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 35px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #ffffff;
+}

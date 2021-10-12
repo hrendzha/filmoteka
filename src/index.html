@@ -1,21 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Filmoteka</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
+</head>
+
+<body>
     <!-- Так добавляются фрагменты в главные HTML-файлы страниц. -->
+    <header class="page-header header img-bg-header">
+        <div class="nav ">
+            <a class="logo" href="./index.html"><span class="logo-cl">
+             Filmoteka</span>
+            </a>
+
+            <ul class="menu list">
+
+                <li class="menu-item">
+                    <a class="active-link  header-link">
+                        HOME
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a class="link header-link">
+                        MY LIBRARY
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+
+        <div class="form-search" <form action="/search/" target="_blank" class="form-search">
+            <input type="hidden" name="searchid" value="808327">
+            <input type="search" name="text" required placeholder="Поиск по сайту">
+            <input type="submit" <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <use href="../src/images/icons/sprite.svg#icon-search"></use>
+            </svg>
+            </form>
+
+        </div>
+
+    </header>
     <include src="./partials/movies.html"></include>
 
     <!-- Скрипт идёт последним в разметке. В нём уже подключен главный SASS-файл. -->
     <script src="./index.js"></script>
-  </body>
+</body>
+
 </html>
