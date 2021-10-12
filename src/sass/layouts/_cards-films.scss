@@ -1,0 +1,17 @@
+.movie {
+  cursor: pointer;
+}
+.movie__title {
+  text-transform: uppercase;
+  font-weight: $main-weight;
+  font-size: 12px;
+  line-height: 16px;
+  color: $black-color;
+}
+.movie__description {
+  font-family: $main-font;
+  font-weight: $main-weight;
+  font-size: 12px;
+  line-height: 16px;
+  color: $accent-color;
+}
