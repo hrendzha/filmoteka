@@ -34,6 +34,7 @@ class RenderFilms {
         const shortGanres = ganres.splice(0, 2);
         shortGanres.push('Other');
         film.ganre = shortGanres;
+        film.allGanre = ganres;
       } else {
         film.ganre = ganres;
       }
@@ -54,5 +55,3 @@ class RenderFilms {
 }
 
 export default new RenderFilms();
-const renderFilms = new RenderFilms();
-renderFilms.renderTrendingMovies();
