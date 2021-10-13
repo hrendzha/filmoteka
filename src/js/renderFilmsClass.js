@@ -11,7 +11,7 @@ class RenderFilms {
     try {
       const films = await this.getMovies();
       const filmsWithGenre = await this.getGenre(films);
-      this.renderCards(filmsWithGenre, 2);
+      renderCards(filmsWithGenre, 1);
     } catch (error) {
       LoaderSpinner.errorSpinner();
       console.log(error);
@@ -24,6 +24,7 @@ class RenderFilms {
     return films;
   }
   //Get fiilms with genre
+
   async getGenre(films) {
     const genre = films.map(async film => {
       let id = film.id;
@@ -43,15 +44,19 @@ class RenderFilms {
       film.release_date = film.release_date.slice(0, 4);
       return film;
     });
-    const friends = await Promise.all(genre);
-    return friends;
+    const doneResult = await Promise.all(genre);
+    return doneResult;
   }
   // render
   renderCards(films, option) {
     listFilms.innerHTML = '';
+
+    //without rating
     if (option === 1) {
       listFilms.insertAdjacentHTML('beforeend', filmsCards(films));
     } else if (option === 2) {
+      // with ratin
+
       listFilms.insertAdjacentHTML('beforeend', filmsWithRating(films));
     }
   }
