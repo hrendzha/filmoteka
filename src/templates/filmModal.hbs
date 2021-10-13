@@ -1,0 +1,36 @@
+<img class="modal_img" src="{{poster_path}}" alt="{{original_title}}" />
+<div class="text_content">
+    <h1 class="text_content__name">{{original_title}}</h1>
+    <table class="text_content__info">
+        <tr class="text_content__trow">
+            <td class="text_content__data">Vote / Votes</td>
+            <td class="text_content__data">
+                <span class="text_content__rate">{{vote_average}}</span>
+                <span class="text_content__slash">/</span>
+                <span class="text_content__rate">{{vote_count}}</span>
+            </td>
+        </tr>
+        <tr class="text_content__trow">
+            <td class="text_content__data">Popularity</td>
+            <td class="text_content__data">{{popularity}}</td>
+        </tr>
+        <tr class="text_content__trow">
+            <td class="text_content__data">Original Titles</td>
+            <td class="text_content__data">{{original_title}}</td>
+        </tr>
+        <tr class="text_content__trow">
+            <td class="text_content__data">Genre</td>
+            <td class="text_content__data">
+                {{#each genres}}
+                {{this.name}}
+                {{/each}}
+            </td>
+        </tr>
+    </table>
+    <h2 class="overview_title">About</h2>
+    <p>{{overview}}</p>
+    <div class="modal_buttons">
+        <input type='button' class='add_to_watched' data-action=“add to watched” value='Add to watched' />
+        <input type='button' class='add_to_queue' data-action=“add to queue” value='Add to queue' />
+    </div>
+</div>
