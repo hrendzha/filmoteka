@@ -11,7 +11,7 @@ class RenderFilms {
     try {
       const films = await this.getMovies();
       const filmsWithGenre = await this.getGenre(films);
-      renderCards(filmsWithGenre, 1);
+      this.renderCards(filmsWithGenre, 1);
     } catch (error) {
       LoaderSpinner.errorSpinner();
       console.log(error);
@@ -50,13 +50,11 @@ class RenderFilms {
   // render
   renderCards(films, option) {
     listFilms.innerHTML = '';
-
     //without rating
     if (option === 1) {
       listFilms.insertAdjacentHTML('beforeend', filmsCards(films));
     } else if (option === 2) {
       // with ratin
-
       listFilms.insertAdjacentHTML('beforeend', filmsWithRating(films));
     }
   }
