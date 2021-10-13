@@ -1,3 +1,30 @@
+.header {
+    padding: 41px 76px 0px 115px;
+}
+
+.nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: auto;
+}
+
+.menu {
+    display: inline-flex;
+}
+
+.menu-item:not(:last-child) {
+    padding-right: 39px;
+    padding-bottom: 41px;
+}
+
+.img-bg-header {
+    background-image: linear-gradient( rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url(../images/desktop/header_background_homepage@2x.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .logo-cl,
 .logo:hover,
 .logo:focus {
@@ -14,4 +41,68 @@
     align-items: center;
     text-align: center;
     color: #ffffff;
+}
+
+.header-link {
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.17;
+    letter-spacing: 0.02em;
+    color: #ffffff;
+    display: block;
+    position: relative;
+    transition-property: color;
+    transition-duration: 250ms;
+    transition-timing-function: var(--cubic-bezier);
+}
+
+.active-link:hover::after {
+    opacity: 1;
+    fill: var(--link-alt-color);
+}
+
+.active-link::after {
+    content: " ";
+    width: 100%;
+    height: 3px;
+    background-color: #FF6B08;
+    display: block;
+    position: absolute;
+    opacity: 1;
+    transition-duration: 250ms;
+    transition-timing-function: var(--cubic-bezier);
+}
+
+.active-link:hover,
+.active-link:focus {
+    color: #FFFFFF;
+}
+
+.link:hover,
+.link:focus {
+    color: #FFFFFF;
+}
+
+.active-link {
+    color: #FFFFFF;
+}
+
+.form-search {
+    display: flex;
+    justify-content: center;
+    color: #FFFFFF;
+    padding-bottom: 102px;
+}
+
+.form-search input {
+    all: unset;
+    text-decoration-color: #FFFFFF;
+    border-bottom: 0.5px solid #ffffff;
+    width: 20%;
+}
+
+.form-search ::placeholder {
+    align-items: center;
+    color: #FFFFFF;
 }
