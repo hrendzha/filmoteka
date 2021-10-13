@@ -1,5 +1,6 @@
 import fetchFilmClass from './fetchFilmClass';
 import filmsCards from '../templates/films.hbs';
+import filmsWithRating from '../templates/films-with-rating.hbs';
 import LoaderSpinner from './spinnerClass';
 const listFilms = document.querySelector('.list-movies');
 
@@ -9,8 +10,8 @@ class RenderFilms {
   async renderTrendingMovies() {
     try {
       const films = await this.getMovies();
-      const filmsWithGanre = await this.getGanre(films);
-      this.renderCards(filmsWithGanre);
+      const filmsWithGenre = await this.getGenre(films);
+      this.renderCards(filmsWithGenre, 2);
     } catch (error) {
       LoaderSpinner.errorSpinner();
       console.log(error);
@@ -22,35 +23,37 @@ class RenderFilms {
     const films = response.results;
     return films;
   }
-  //Get fiilms with ganre
-  async getGanre(films) {
-    const ganre = films.map(async film => {
+  //Get fiilms with genre
+  async getGenre(films) {
+    const genre = films.map(async film => {
       let id = film.id;
-      const ganreObj = await fetchFilmClass.getGenresByFilmId(id);
-      const ganres = ganreObj.map(function (ganre) {
-        return ganre.name;
+      const genreObj = await fetchFilmClass.getGenresByFilmId(id);
+      const genres = genreObj.map(function (genre) {
+        return `${genre.name},`;
       });
-      if (ganres.length > 2) {
-        const shortGanres = ganres.splice(0, 2);
-        shortGanres.push('Other');
-        film.ganre = shortGanres;
-        film.allGanre = ganres;
+      if (genres.length > 2) {
+        const shortGenres = genres.splice(0, 2);
+        shortGenres.push('Other');
+        film.genre = shortGenres;
       } else {
-        film.ganre = ganres;
+        genres[genres.length - 1] = genres[genres.length - 1].slice(0, -1);
+        film.genre = genres;
       }
 
       film.release_date = film.release_date.slice(0, 4);
       return film;
     });
-    const friends = await Promise.all(ganre);
+    const friends = await Promise.all(genre);
     return friends;
   }
   // render
-  renderCards(films) {
-    LoaderSpinner.startSpinner();
+  renderCards(films, option) {
     listFilms.innerHTML = '';
-    listFilms.insertAdjacentHTML('beforeend', filmsCards(films));
-    LoaderSpinner.removeSpinner();
+    if (option === 1) {
+      listFilms.insertAdjacentHTML('beforeend', filmsCards(films));
+    } else if (option === 2) {
+      listFilms.insertAdjacentHTML('beforeend', filmsWithRating(films));
+    }
   }
 }
 

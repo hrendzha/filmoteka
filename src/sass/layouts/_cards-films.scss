@@ -17,3 +17,10 @@
   line-height: 16px;
   color: $accent-color;
 }
+.movie__rating {
+  color: $white-color;
+  background-color: $accent-color;
+  line-height: 14px;
+  padding: 1px 10px;
+  border-radius: 5px;
+}
