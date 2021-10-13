@@ -9,12 +9,13 @@ const overlay = document.querySelector('.overlay');
 const overlayModal = document.querySelector('.overlay_modal')
 const watchedBtn = document.querySelector('.add_to_watched')
 const queueBtn = document.querySelector('.add_to_queue')
-
+const trailer = document.querySelector('.trailer')
 const instance = basicLightbox.create(overlay)
 
-function openModal() {
+function openModal(event) {
     modal.onclick = instance.show;
-    FilmsAPI.getFilmById(6).then(renderModalContent())
+    const id = event.target.dataset.id;
+    FilmsAPI.getFilmById(87).then((r) => { renderModalContent(r) })
     document.addEventListener('keydown', closeModal);
     modalClose.addEventListener('click', closeModal);
     overlayModal.addEventListener('click', closeModal);
@@ -25,6 +26,11 @@ function renderModalContent(film) {
     const modalMarkup = modalTmp(film)
     modalClose.insertAdjacentHTML('afterend', modalMarkup);
 }
+//  console.log(FilmsAPI.getFilmTrailers(6).then(res=>{console.log(res) }))
+function getTrailerUrl() {
+    FilmsAPI.getFilmTrailers(87).then(res => { console.log(res);  const trailerUrl = res; return trailerUrl})
+}
+getTrailerUrl()
 
 function closeModal(e) {
     if (e.key === 'Escape' || e.target.classList.contains('overlay_modal') || e.target.classList.contains('icon-modal-close')){

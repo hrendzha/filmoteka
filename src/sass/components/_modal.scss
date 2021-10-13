@@ -54,6 +54,7 @@
 .modal_buttons {
   display: flex;
   justify-content: space-between;
+  margin: 20px 0;
   @media screen and (min-width: 1024px) {
     width: 295px;
   }
@@ -155,4 +156,9 @@
 .overview_title {
   text-transform: uppercase;
   margin: 20px 0 10px 0;
+  font-size: 12px;
+  line-height: 16px;
+}
+.trailer {
+  border: 1px solid red;
 }
