@@ -1,5 +1,6 @@
 import fetchFilmClass from './fetchFilmClass';
 import filmsCards from '../templates/films.hbs';
+import storage from './local-storage';
 const listFilms = document.querySelector('.list-movies');
 
 class RenderFilms {
@@ -45,6 +46,27 @@ class RenderFilms {
   renderCards(films) {
     listFilms.innerHTML = '';
     listFilms.insertAdjacentHTML('beforeend', filmsCards(films));
+  }
+
+  async renderMoviesFromViewed(list) {
+    const key = list === 'watched' ? storage.LS_KEYS.watched : storage.LS_KEYS.queue;
+
+    try {
+      const arrayOfPromises = storage.load(key).map(async id => {
+        const movie = await fetchFilmClass.getFilmById(id);
+        movie.ganre = this.getCorrectGenres(movie.genres);
+        return movie;
+      });
+      const movies = await Promise.all(arrayOfPromises);
+      this.renderCards(movies);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  getCorrectGenres(genresAlongId) {
+    const onlyGenres = genresAlongId.map(genre => genre.name);
+    return onlyGenres.length > 2 ? [...onlyGenres.slice(0, 2), 'Other'] : onlyGenres;
   }
 }
 

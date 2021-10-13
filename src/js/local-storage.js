@@ -1,3 +1,8 @@
+const LS_KEYS = {
+  watched: 'watched',
+  queue: 'queue',
+};
+
 const load = key => {
   try {
     const data = localStorage.getItem(key);
@@ -17,4 +22,4 @@ const save = (key, value) => {
   }
 };
 
-export default { load, save };
+export default { load, save, LS_KEYS };
