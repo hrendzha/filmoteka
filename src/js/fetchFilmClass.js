@@ -5,9 +5,9 @@ class FilmsAPI {
     this.baseURL = 'https://api.themoviedb.org/3';
     this.key = key;
   }
-  async getTrending() {
+  async getTrending(page) {
     try {
-      const response = await axios.get(`${this.baseURL}/trending/movie/day?api_key=${this.key}`);
+      const response = await axios.get(`${this.baseURL}/trending/movie/day?api_key=${this.key}&page=${page}`);
       const trending = response.data;
       return trending;
     } catch (error) {

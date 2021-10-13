@@ -5,9 +5,9 @@ const listFilms = document.querySelector('.list-movies');
 class RenderFilms {
   constructor() {}
   // Основная функция
-  async renderTrendingMovies() {
+  async renderTrendingMovies(page) {
     try {
-      const films = await this.getMovies();
+      const films = await this.getMovies(page);
       const filmsWithGanre = await this.getGanre(films);
       this.renderCards(filmsWithGanre);
     } catch (error) {
@@ -15,8 +15,8 @@ class RenderFilms {
     }
   }
   // get films
-  async getMovies() {
-    const response = await fetchFilmClass.getTrending();
+  async getMovies(page) {
+    const response = await fetchFilmClass.getTrending(page);
     const films = response.results;
     return films;
   }
