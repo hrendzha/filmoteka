@@ -11,7 +11,7 @@ class RenderFilms {
     try {
       const films = await this.getMovies();
       const filmsWithGenre = await this.getGenre(films);
-      this.renderCards(filmsWithGenre, 1);
+      this.renderHomeCards(filmsWithGenre);
     } catch (error) {
       LoaderSpinner.errorSpinner();
       console.log(error);
@@ -47,16 +47,17 @@ class RenderFilms {
     const doneResult = await Promise.all(genre);
     return doneResult;
   }
-  // render
-  renderCards(films, option) {
+  // render without rating
+  renderHomeCards(films) {
+    this.clearListFilmsMrk()
+    listFilms.insertAdjacentHTML('beforeend', filmsCards(films));
+  }
+  renderLibaryCards(films){
+    this.clearListFilmsMrk()
+    listFilms.insertAdjacentHTML('beforeend', filmsWithRating(films));
+  }
+  clearListFilmsMrk(){
     listFilms.innerHTML = '';
-    //without rating
-    if (option === 1) {
-      listFilms.insertAdjacentHTML('beforeend', filmsCards(films));
-    } else if (option === 2) {
-      // with ratin
-      listFilms.insertAdjacentHTML('beforeend', filmsWithRating(films));
-    }
   }
 }
 
