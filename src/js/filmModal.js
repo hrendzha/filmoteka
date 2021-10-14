@@ -7,7 +7,11 @@ const filmModalOpen = document.querySelector('.list-movies')
 const modalClose = document.querySelector('.modal_close');
 const overlay = document.querySelector('.overlay');
 const modalContent = document.querySelector('.modal_content')
+const watchedBtn = document.querySelector('.add_to_watched')
+const queueBtn = document.querySelector('.add_to_queue')
+
 const instance = basicLightbox.create(overlay)
+
 
 function renderModalContent(film) {
     const modalMarkup = modalTmp(film)
@@ -20,7 +24,6 @@ function createModal(id) {
 
 filmModalOpen.addEventListener('click', (e) => {
     if (e.target.classList.contains('movie__img')) {
-        console.log(e.target.parentNode.parentNode.dataset.id)
         instance.show()
         createModal(e.target.parentNode.parentNode.dataset.id)
         document.addEventListener('keydown', closeModal);
@@ -31,9 +34,26 @@ filmModalOpen.addEventListener('click', (e) => {
 function closeModal(e) {
     if (e.key === 'Escape' || e.target.classList.contains('icon-modal-close')){
         instance.close()
-        console.log(modalContent)
         document.removeEventListener('keydown', closeModal);
         modalClose.removeEventListener('click', closeModal);
     }
     }
 
+function changeBtnValue(e) {
+    if (e.target.classList.contains('add_to_watched')){
+        watchedBtn.value = 'Added to watched'
+        watchedBtn.classList.add('added')
+        console.log('1')
+    }
+    if (e.target.classList.contains('added')) {
+        watchedBtn.value = 'Remove from watched'
+        watchedBtn.classList.remove('added')
+        console.log('2')
+    } 
+
+}
+function checkedQueueBtn() {
+    queueBtn.value = 'Added to queue'
+}
+
+// watchedBtn.addEventListener('click', changeBtnValue)
