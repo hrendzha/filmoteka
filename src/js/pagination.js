@@ -5,29 +5,34 @@ import 'tui-pagination/dist/tui-pagination.min.css';
 
 const container = document.getElementById('tui-pagination-container');
 const pagination = new Pagination(container,{
-    totalItems: 0,
     itemsPerPage: 20,
     visiblePages: 7,
-    page: 1,
 });
-const userpage = localStorage.getItem('page');
+
+const userpage = localStorage.getItem('page')?localStorage.getItem('page'): 1;
 
 loadPage(userpage);
+moveEvent();
  
 function loadPage(currentPage) {
     fetchTrending(currentPage).then(r => {
         pagination.reset(r.total_pages);
-        pagination.movePageTo(currentPage);
-
+        filmsRender.renderTrendingMovies(currentPage);
+        if (r.results.length < 20) {
+            container.hidden = true;
+        }
     })
 }
 
-pagination.on('afterMove', event => {
+function moveEvent() {
+    pagination.on('afterMove', event => {
     const currentPage = event.page;
+    console.log(currentPage);
+    
     localStorage.setItem('page', currentPage);
-    fetchTrending(currentPage);
     filmsRender.renderTrendingMovies(currentPage);
 });
+}
 
 async function fetchTrending(currentPage){
     const response = await filmsApi.getTrending(currentPage)
