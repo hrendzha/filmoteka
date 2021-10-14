@@ -18,7 +18,25 @@ class RenderFilms {
       console.log(error);
     }
   }
-  // get films
+
+  async renderMoviesByQuery(query,page) {
+    try {
+      const films = await this.getMoviesByQuery(query,page);
+      const filmsWithGenre = await this.getGenre(films);
+      this.renderHomeCards(filmsWithGenre);
+
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  // get film by query
+  async getMoviesByQuery(query,page) {
+    const response = await fetchFilmClass.getFilmsByQuery(query,page);
+    const films = response.results;
+    return films;
+  }
+
+  // get trending films
   async getMovies(page) {
     const response = await fetchFilmClass.getTrending(page);
     const films = response.results;
