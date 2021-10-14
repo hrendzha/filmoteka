@@ -1,4 +1,174 @@
 .modal {
-  width: 400px;
-  background-color: aliceblue;
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  z-index: 3000;
+  transform: translate(-50%, -52%) scale(1);
+  padding: 48px 20px;
+  background: $white-color;
+  @media (min-width: 768px) and (max-width: 1023px) {
+    width: 618px;
+    height: 562px;
+    padding: 42px 28px;
+    display: flex;
+  }
+  @media screen and (min-width: 1024px) {
+    width: 882px;
+    height: 568px;
+    padding: 50px 30px 40px 30px;
+    display: flex;
+  }
+}
+.modal_img {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  @media screen and (min-width: 320px) {
+    height: 356px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 264px;
+    height: 374px;
+  }
+  @media screen and (min-width: 1024px) {
+    width: 356px;
+    height: 478px;
+  }
+}
+.modal_buttons {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+  width: 100%;
+  @media screen and (min-width: 768px) {
+    justify-content: space-between;
+  }
+  @media screen and (min-width: 1024px) {
+    width: 295px;
+  }
+}
+.add_to_watched,
+.add_to_queue {
+  width: 112px;
+  height: 44px;
+  text-transform: uppercase;
+  border-radius: 5px;
+  color: $black-color;
+  border: 1px solid $black-color;
+  box-sizing: border-box;
+  background: $white-color;
+  font-weight: $main-weight;
+  font-size: 12px;
+  line-height: 16px;
+
+  @media screen and (min-width: 768px) {
+    width: 125px;
+  }
+  @media screen and (min-width: 1024px) {
+    width: 136px;
+  }
+}
+
+.add_to_watched:hover,
+.add_to_watched:active,
+.add_to_queue:hover,
+.add_to_queue:active {
+  @extend %button-hover;
+}
+.text_content {
+  margin-top: 30px;
+  //   width: 100%;
+  @media screen and (min-width: 320px) {
+    width: 240px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 264px;
+    margin-left: 30px;
+    margin-top: 0;
+  }
+  @media screen and (min-width: 1024px) {
+    display: block;
+    width: 396px;
+  }
+}
+.text_content__name {
+  font-weight: $main-weight;
+  text-transform: uppercase;
+  color: $black-color;
+  font-size: 20px;
+  line-height: 23.44px;
+
+  @media screen and (min-width: 1024px) {
+    font-size: 30px;
+    line-height: 35.16px;
+  }
+}
+.text_content__info {
+  margin-top: 20px;
+}
+.text_content__trow {
+  margin-top: 10px;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.text_content__data,
+.text_content__slash {
+  color: $card-grey-color;
+}
+.text_content__data:nth-child(odd) {
+  margin-right: 40px;
+  display: inline-block;
+}
+
+.text_content__data:nth-child(even) {
+  color: $black-color;
+}
+.text_content__rate {
+  padding: 2px 4px;
+  background: $footer-bg-color;
+  border-radius: 5px;
+}
+.text_content__rate:hover {
+  background: $accent-color;
+  color: $white-color;
+}
+.modal_close {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  top: -448px;
+  right: -135px;
+  transform: translate(-50%, -52%) scale(1);
+  background: transparent;
+  z-index: 4000;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  @media screen and (min-width: 768px) {
+    top: -248px;
+    right: -298px;
+  }
+  @media screen and (min-width: 1024px) {
+    top: -248px;
+    right: -430px;
+  }
+}
+.modal_close:hover .icon-modal-close,
+.modal_close:active .icon-modal-close,
+.modal_close:focus .icon-modal-close {
+  fill: $accent-color;
+}
+
+.icon-modal-close {
+  width: 14px;
+  height: 14px;
+  color: currentColor;
+  fill: $black-color;
+  z-index: 4001;
+}
+.overview_title {
+  text-transform: uppercase;
+  margin: 20px 0 10px 0;
+  font-size: 12px;
+  line-height: 16px;
 }
