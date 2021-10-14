@@ -94,4 +94,4 @@ var e,n=arguments[3];!function(t){"object"==typeof exports&&"undefined"!=typeof 
 },{"basiclightbox":"BNjD","../../node_modules/basiclightbox/dist/basicLightbox.min.css":"qCiC","../templates/filmModal":"x53F","../js/fetchFilmClass":"rgga"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss");var e=r(require("./templates/films.hbs"));require("./js/pagination");var s=r(require("./js/renderFilmsClass"));function r(e){return e&&e.__esModule?e:{default:e}}require("./js/filmModal");const a="e51fa7aa1819bb081f9c2dbbae1f5e9d";
 },{"./sass/main.scss":"clu1","./templates/films.hbs":"zHxC","./js/pagination":"o8lo","./js/renderFilmsClass":"cdUA","./js/filmModal":"kkpu"}]},{},["Focm"], null)
-//# sourceMappingURL=/filmoteka/js/src.5479d3ff.js.map
+//# sourceMappingURL=/filmoteka/js/src.d6fffc65.js.map
