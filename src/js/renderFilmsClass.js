@@ -1,7 +1,9 @@
 import fetchFilmClass from './fetchFilmClass';
 import filmsCards from '../templates/films.hbs';
+import storage from './local-storage';
 import filmsWithRating from '../templates/films-with-rating.hbs';
 import LoaderSpinner from './spinnerClass';
+
 const listFilms = document.querySelector('.list-movies');
 
 class RenderFilms {
@@ -50,15 +52,46 @@ class RenderFilms {
   }
   // render without rating
   renderHomeCards(films) {
-    this.clearListFilmsMrk()
+    this.clearListFilmsMrk();
     listFilms.insertAdjacentHTML('beforeend', filmsCards(films));
   }
-  renderLibaryCards(films){
-    this.clearListFilmsMrk()
+
+  renderLibraryCards(films) {
+    this.clearListFilmsMrk();
     listFilms.insertAdjacentHTML('beforeend', filmsWithRating(films));
   }
-  clearListFilmsMrk(){
+
+  clearListFilmsMrk() {
     listFilms.innerHTML = '';
+  }
+
+  async renderMoviesFromViewedOrQueue(list) {
+    const key = list === 'watched' ? storage.LS_KEYS.watched : storage.LS_KEYS.queue;
+
+    try {
+      const arrayOfPromises = storage.load(key).map(async id => {
+        const movie = await fetchFilmClass.getFilmById(id);
+        return {
+          ...movie,
+          genre: this.getCorrectGenres(movie.genres),
+          release_date: this.getYearFromReleaseDate(movie.release_date),
+        };
+      });
+
+      const movies = await Promise.all(arrayOfPromises);
+      this.renderLibraryCards(movies);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  getCorrectGenres(genresAlongId) {
+    const onlyGenres = genresAlongId.map(genre => genre.name);
+    return onlyGenres.length > 2 ? [...onlyGenres.slice(0, 2), 'Other'] : onlyGenres;
+  }
+
+  getYearFromReleaseDate(releaseDate) {
+    return releaseDate.slice(0, 4);
   }
 }
 
