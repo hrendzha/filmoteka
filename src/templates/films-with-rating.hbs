@@ -8,8 +8,12 @@
           alt='poster-{{original_title}}'
         />
       </div>
-      <h2 class='movie__title'>{{title}}</h2>
-      <span class='movie__description'> {{#each genre}}{{this}} {{/each}} | {{release_date}}</span>
+      <h2 class='movie__title'>{{original_title}}</h2>
+      <span class='movie__description'>
+        {{#each genre}}{{this}} {{/each}}
+        |
+        {{release_date}}
+        <span class='movie__rating'>{{vote_average}}</span></span>
     </article>
   </li>
 {{/each}}
