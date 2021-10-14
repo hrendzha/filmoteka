@@ -27,8 +27,6 @@ function loadPage(currentPage) {
 function moveEvent() {
     pagination.on('afterMove', event => {
     const currentPage = event.page;
-    console.log(currentPage);
-    
     localStorage.setItem('page', currentPage);
     filmsRender.renderTrendingMovies(currentPage);
 });
@@ -36,7 +34,5 @@ function moveEvent() {
 
 async function fetchTrending(currentPage){
     const response = await filmsApi.getTrending(currentPage)
-    console.log(response);
-    
     return response;
 }
