@@ -2,6 +2,8 @@
   cursor: pointer;
 }
 .movie__title {
+  margin-top: 10px;
+  font-family: $main-font;
   text-transform: uppercase;
   font-weight: $main-weight;
   font-size: 12px;
@@ -14,4 +16,11 @@
   font-size: 12px;
   line-height: 16px;
   color: $accent-color;
+}
+.movie__rating {
+  color: $white-color;
+  background-color: $accent-color;
+  padding: 1px 10px;
+  line-height: 16px;
+  border-radius: 5px;
 }
