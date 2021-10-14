@@ -7,19 +7,20 @@ const listFilms = document.querySelector('.list-movies');
 class RenderFilms {
   constructor() {}
   // Основная функция
-  async renderTrendingMovies() {
+  async renderTrendingMovies(page) {
     try {
-      const films = await this.getMovies();
+      const films = await this.getMovies(page);
       const filmsWithGenre = await this.getGenre(films);
       this.renderHomeCards(filmsWithGenre);
+
     } catch (error) {
       LoaderSpinner.errorSpinner();
       console.log(error);
     }
   }
   // get films
-  async getMovies() {
-    const response = await fetchFilmClass.getTrending();
+  async getMovies(page) {
+    const response = await fetchFilmClass.getTrending(page);
     const films = response.results;
     return films;
   }
