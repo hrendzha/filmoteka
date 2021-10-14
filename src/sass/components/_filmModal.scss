@@ -47,19 +47,31 @@
     width: 295px;
   }
 }
+.trailer {
+  @extend %button;
+  padding: 10px;
+  display: block;
+  margin: 10px 0;
+  width: 140px;
+  border: none;
+  background: $footer-bg-color;
+}
+.youtube_icon {
+  width: 20px;
+  height: 20px;
+  fill: red;
+  display: inline;
+  position: absolute;
+  margin-top: -3px;
+  margin-left: 10px;
+  border: 1px solid red;
+  background-image: url('/images/icons/sprite.svg#icon-close');
+}
 .add_to_watched,
 .add_to_queue {
+  @extend %button;
   width: 112px;
   height: 44px;
-  text-transform: uppercase;
-  border-radius: 5px;
-  color: $black-color;
-  border: 1px solid $black-color;
-  box-sizing: border-box;
-  background: $white-color;
-  font-weight: $main-weight;
-  font-size: 12px;
-  line-height: 16px;
 
   @media screen and (min-width: 768px) {
     width: 125px;
@@ -72,7 +84,9 @@
 .add_to_watched:hover,
 .add_to_watched:active,
 .add_to_queue:hover,
-.add_to_queue:active {
+.add_to_queue:active,
+.trailer:hover,
+.trailer:active {
   @extend %button-hover;
 }
 .text_content {
@@ -124,12 +138,14 @@
 .text_content__data:nth-child(even) {
   color: $black-color;
 }
-.text_content__rate {
+.text_content__rate,
+.genres {
   padding: 2px 4px;
   background: $footer-bg-color;
   border-radius: 5px;
 }
-.text_content__rate:hover {
+.text_content__rate:hover,
+.genres:hover {
   background: $accent-color;
   color: $white-color;
 }

@@ -36,3 +36,4 @@ function closeModal(e) {
         modalClose.removeEventListener('click', closeModal);
     }
     }
+
