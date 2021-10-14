@@ -1,7 +1,6 @@
 import fetchFilmClass from './fetchFilmClass';
 import filmsCards from '../templates/films.hbs';
 import filmsWithRating from '../templates/films-with-rating.hbs';
-import LoaderSpinner from './spinnerClass';
 const listFilms = document.querySelector('.list-movies');
 
 class RenderFilms {
@@ -14,7 +13,6 @@ class RenderFilms {
       this.renderHomeCards(filmsWithGenre);
 
     } catch (error) {
-      LoaderSpinner.errorSpinner();
       console.log(error);
     }
   }
@@ -38,10 +36,13 @@ class RenderFilms {
         shortGenres.push('Other');
         film.genre = shortGenres;
       } else {
-        genres[genres.length - 1] = genres[genres.length - 1].slice(0, -1);
-        film.genre = genres;
+        if(genres[genres.length - 1]===undefined){
+          film.genre = genres;
+        }else{
+          genres[genres.length - 1] = genres[genres.length - 1].slice(0, -1);
+          film.genre = genres;
+        }
       }
-
       film.release_date = film.release_date.slice(0, 4);
       return film;
     });
