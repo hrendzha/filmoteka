@@ -55,7 +55,7 @@ class RenderFilms {
     listFilms.insertAdjacentHTML('beforeend', filmsCards(films));
   }
 
-  renderLibaryCards(films) {
+  renderLibraryCards(films) {
     this.clearListFilmsMrk();
     listFilms.insertAdjacentHTML('beforeend', filmsWithRating(films));
   }
@@ -64,17 +64,21 @@ class RenderFilms {
     listFilms.innerHTML = '';
   }
 
-  async renderMoviesFromViewed(list) {
+  async renderMoviesFromViewedOrQueue(list) {
     const key = list === 'watched' ? storage.LS_KEYS.watched : storage.LS_KEYS.queue;
 
     try {
       const arrayOfPromises = storage.load(key).map(async id => {
         const movie = await fetchFilmClass.getFilmById(id);
-        movie.ganre = this.getCorrectGenres(movie.genres);
-        return movie;
+        return {
+          ...movie,
+          genre: this.getCorrectGenres(movie.genres),
+          release_date: this.getYearFromReleaseDate(movie.release_date),
+        };
       });
+
       const movies = await Promise.all(arrayOfPromises);
-      this.renderCards(movies);
+      this.renderLibraryCards(movies);
     } catch (error) {
       console.log(error);
     }
@@ -83,6 +87,10 @@ class RenderFilms {
   getCorrectGenres(genresAlongId) {
     const onlyGenres = genresAlongId.map(genre => genre.name);
     return onlyGenres.length > 2 ? [...onlyGenres.slice(0, 2), 'Other'] : onlyGenres;
+  }
+
+  getYearFromReleaseDate(releaseDate) {
+    return releaseDate.slice(0, 4);
   }
 }
 
