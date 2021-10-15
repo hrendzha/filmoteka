@@ -1,0 +1,89 @@
+.header_library {
+  padding: 45px 0;
+  background-color: $bg-header-color;
+  height: 230px;
+  margin-left: auto;
+  margin-right: auto;
+  background-image: linear-gradient(to top left, $bg-header-color, $bg-header-color),
+    url('../images/mobile/header_background_library@1x.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  @media (min-device-pixel-ratio: 2),
+    (-webkit-min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    background-image: linear-gradient(to top left, $bg-header-color, $bg-header-color),
+      url('../images/mobile/header_background_library@2x.jpg');
+  }
+  @media screen and (min-width: 769px) {
+    background-image: linear-gradient(to top left, $bg-header-color, $bg-header-color),
+      url('../images/tablet/header_background_library@1x.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    @media (min-device-pixel-ratio: 2),
+      (-webkit-min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: linear-gradient(to top left, $bg-header-color, $bg-header-color),
+        url('../images/tablet/header_background_library@2x.jpg');
+    }
+  }
+  @media screen and (min-width: 1025px) {
+    background-image: linear-gradient(to top left, $bg-header-color, $bg-header-color),
+      url('../images/desktop/header_background_library@1x.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    @media (min-device-pixel-ratio: 2),
+      (-webkit-min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: linear-gradient(to top left, $bg-header-color, $bg-header-color),
+        url('../images/desktop/header_background_library@2x.jpg');
+    }
+  }
+}
+.library_buttons {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  color: $white-color;
+  border-color: $white-color;
+  justify-content: space-between;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  background: none;
+  @media screen and (min-width: 768px) {
+    justify-content: space-between;
+  }
+  @media screen and (min-width: 1024px) {
+    width: 295px;
+  }
+}
+.librarybuttons {
+  background: none;
+  color: $white-color;
+  border-color: $white-color;
+}
+.watched-btn,
+.queue-btn {
+  @extend %button;
+  width: 112px;
+  height: 44px;
+  @media screen and (min-width: 768px) {
+    width: 125px;
+  }
+  @media screen and (min-width: 1024px) {
+    width: 136px;
+  }
+}
+.watched-btn:hover,
+.watched-btn:active,
+.queue-btn:hover,
+.queue-btn:active {
+  @extend %button-hover;
+}
