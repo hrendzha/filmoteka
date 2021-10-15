@@ -12,23 +12,21 @@ const pagination = new Pagination(container,{
 const userpage = localStorage.getItem('page')?localStorage.getItem('page'): 1;
 
 loadPage(userpage);
-moveEvent();
- 
+
 function loadPage(currentPage) {
     fetchTrending(currentPage).then(r => {
         pagination.reset(r.total_pages);
-        filmsRender.renderTrendingMovies(currentPage);
-        if (r.results.length < 20) {
-            container.hidden = true;
-        }
+        pagination.movePageTo(currentPage);
     })
+    moveEvent();
 }
 
 function moveEvent() {
     pagination.on('afterMove', event => {
-    const currentPage = event.page;
-    localStorage.setItem('page', currentPage);
-    filmsRender.renderTrendingMovies(currentPage);
+        const currentPage = event.page;
+        
+        localStorage.setItem('page', currentPage);
+        filmsRender.renderTrendingMovies(currentPage);
 });
 }
 

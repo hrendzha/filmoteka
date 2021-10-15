@@ -1,22 +1,25 @@
 .modal {
   position: absolute;
-  top: 20px;
   left: 50%;
   z-index: 3000;
-  transform: translate(-50%, -52%) scale(1);
-  padding: 48px 20px;
+  // max-height: 958px;
+  margin-bottom: 100px;
+  transform: translate(-50%, -17%) scale(1);
+  padding: 48px 20px 10px;
   background: $white-color;
   @media (min-width: 768px) and (max-width: 1023px) {
     width: 618px;
-    height: 562px;
-    padding: 42px 28px;
+    // height: 472px;
+    padding: 42px 28px 0px;
     display: flex;
+    top: -80px;
   }
   @media screen and (min-width: 1024px) {
     width: 882px;
-    height: 568px;
-    padding: 50px 30px 40px 30px;
+    // height: 568px;
+    padding: 50px 30px 40px;
     display: flex;
+    top: -100px;
   }
 }
 .modal_img {
@@ -56,7 +59,7 @@
   border: none;
   background: $footer-bg-color;
 }
-.youtube_icon {
+.youtube-icon {
   width: 20px;
   height: 20px;
   fill: red;
@@ -64,8 +67,6 @@
   position: absolute;
   margin-top: -3px;
   margin-left: 10px;
-  border: 1px solid red;
-  background-image: url('/images/icons/sprite.svg#icon-close');
 }
 .add_to_watched,
 .add_to_queue {
@@ -153,7 +154,7 @@
   position: absolute;
   width: 14px;
   height: 14px;
-  top: -390px;
+  top: -130px;
   right: -135px;
   transform: translate(-50%, -52%) scale(1);
   background: transparent;
@@ -161,11 +162,11 @@
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   @media screen and (min-width: 768px) {
-    top: -248px;
+    top: -132px;
     right: -298px;
   }
   @media screen and (min-width: 1024px) {
-    top: -248px;
+    top: -170px;
     right: -430px;
   }
 }
