@@ -37,4 +37,4 @@ class LibraryApi {
   }
 }
 
-export default LibraryApi;
+export default new LibraryApi();
