@@ -5,6 +5,8 @@
   background-color: $bg-header-color;
 
   height: 230px;
+  margin-left: auto;
+  margin-right: auto;
   background-image: linear-gradient(to top left, $bg-header-color, $bg-header-color),
     url('../images/mobile/header_background_homepage@1x.jpg');
   background-repeat: no-repeat;
@@ -70,6 +72,10 @@
   margin-right: 40px;
   border-bottom: solid 3px $accent-color;
 }
+
+.library-link {
+  border-bottom: solid 3px transparent;
+}
 .logo-word {
   display: none;
 
@@ -98,13 +104,18 @@
   }
 }
 
+.search-button {
+  position: absolute;
+  right: 0;
+  top: 2px;
+  border: none;
+  background: none;
+}
+
 .icon-search {
   width: 12px;
   height: 12px;
   fill: $white-color;
-  position: absolute;
-  right: 0;
-  top: 2px;
 }
 
 .search-input {
