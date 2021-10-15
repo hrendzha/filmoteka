@@ -23,11 +23,10 @@ class FilmsAPI {
       console.log(error);
     }
   }
-  async getFilmsByQuery(query) {
+  async getFilmsByQuery(query,page) {
     try {
       const response = await axios.get(
-        `${this.baseURL}/search/movie?api_key=${this.key}&query=${query}`,
-      );
+        `${this.baseURL}/search/movie?api_key=${this.key}&query=${query}&page=${page}`);
       const films = response.data;
       return films;
     } catch (error) {
