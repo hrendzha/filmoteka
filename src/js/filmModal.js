@@ -25,12 +25,11 @@ function createModal(id) {
 }
 
 filmModalOpen.addEventListener('click', e => {
-  if (e.target.classList.contains('movie__img')) {
+  if (e.target.classList.contains('movie__img') || e.target.classList.contains('movie__title') ) {
     instance.show();
     createModal(e.target.parentNode.parentNode.dataset.id);
     document.addEventListener('keydown', closeModal);
     modalClose.addEventListener('click', closeModal);
-
     modalContent.addEventListener('click', onModalClick);
   }
 });
@@ -68,3 +67,17 @@ function onModalClick(e) {
 
   library.addOrRemoveFilmsFromLs(filmId, action);
 }
+console.log(document.querySelector('body').classList.contains('basicLightbox--visible'))
+function disableScroll() {
+  if (document.querySelector('body').classList.contains('basicLightbox--visible')) {
+      console.log('open')
+  }
+  
+}
+
+// function enable_scroll() {
+//     if (window.removeEventListener) {
+//         window.removeEventListener('DOMMouseScroll', theMouseWheel, false);
+//     }
+//     window.onmousewheel = document.onmousewheel = null;  
+// }
