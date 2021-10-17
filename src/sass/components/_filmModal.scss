@@ -139,7 +139,6 @@
   margin-top: 20px;
 }
 .text_content__trow {
-  margin-top: 10px;
   font-size: 12px;
   line-height: 16px;
 }
@@ -150,6 +149,7 @@
 }
 .text_content__data:nth-child(odd) {
   margin-right: 40px;
+  margin-bottom: 10px;
   display: inline-block;
 }
 

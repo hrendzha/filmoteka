@@ -61,12 +61,12 @@ function createModal(id) {
     const queueBtn = document.querySelector('.add_to_queue');
     function changeBtnValue(e) {
           if (e.target.classList.contains('add_to_watched')) {
-            watchedBtn.value = 'Added to watched';
+            watchedBtn.value = 'Added';
             watchedBtn.classList.add('added_to_w');
             watchedBtn.classList.remove('add_to_watched');
           } else {
               if (e.target.classList.contains('added_to_w')) {
-                watchedBtn.value = 'Added';
+                watchedBtn.value = 'Add to watched';
                 watchedBtn.classList.add('add_to_watched');
                 watchedBtn.classList.remove('added_to_w');
               } 
