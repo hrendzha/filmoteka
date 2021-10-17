@@ -5,6 +5,7 @@
   "main": "index.js",
   "homepage": "https://hrendzha.github.io/filmoteka",
   "scripts": {
+    "start": "npm run dev",
     "dev": "parcel src/*.html",
     "build": "parcel build src/*.html --public-url /filmoteka/"
   },
@@ -46,7 +47,8 @@
       "images": [
         ".jpg",
         ".png",
-        ".svg"
+        ".svg",
+        ".ico"
       ],
       "fonts": [
         "woff",

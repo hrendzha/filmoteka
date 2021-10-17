@@ -1,0 +1,9 @@
+.tui-pagination .tui-is-selected,
+.tui-pagination strong {
+  border-radius: 5px;
+  background: $accent-color !important;
+  border-color: $accent-color !important;
+}
+.tui-pagination {
+  padding-bottom: 60px;
+}

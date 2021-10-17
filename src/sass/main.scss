@@ -15,10 +15,20 @@
 
 @import './base/container';
 
+@import './layouts/header';
+
+@import './components/library-buttons';
+
 @import './layouts/cards-films';
 
 @import './layouts/home-cards';
 
+@import './components/footerModal';
+
+@import './components/filmModal';
+
 @import './layouts/footer';
 
-@import './components/footerModal';
+@import './components/scroll-top-btn';
+
+@import './layouts/pagination';

@@ -5,9 +5,11 @@ class FilmsAPI {
     this.baseURL = 'https://api.themoviedb.org/3';
     this.key = key;
   }
-  async getTrending() {
+  async getTrending(page) {
     try {
-      const response = await axios.get(`${this.baseURL}/trending/movie/day?api_key=${this.key}`);
+      const response = await axios.get(
+        `${this.baseURL}/trending/movie/day?api_key=${this.key}&page=${page}`,
+      );
       const trending = response.data;
       return trending;
     } catch (error) {
@@ -23,10 +25,10 @@ class FilmsAPI {
       console.log(error);
     }
   }
-  async getFilmsByQuery(query) {
+  async getFilmsByQuery(query, page) {
     try {
       const response = await axios.get(
-        `${this.baseURL}/search/movie?api_key=${this.key}&query=${query}`,
+        `${this.baseURL}/search/movie?api_key=${this.key}&query=${query}&page=${page}`,
       );
       const films = response.data;
       return films;
@@ -40,7 +42,7 @@ class FilmsAPI {
         `${this.baseURL}/movie/${id}/videos?api_key=${this.key}&language=en-US`,
       );
       const trailersdata = response.data.results;
-      const trailer = `https://www.youtube.com/watch?v=${trailersdata[0].key}`;
+      const trailer = `https://www.youtube.com/embed/${trailersdata[0].key}`;
       return trailer;
     } catch (error) {
       console.log(error);
