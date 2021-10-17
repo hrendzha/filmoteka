@@ -13,6 +13,29 @@ function createModal(id) {
     modal.show();
     disableScroll()
 
+    document.querySelector('.trailer').addEventListener('click', () => {
+      FilmsAPI.getFilmTrailers(id)
+        .then(data => {
+          const link = data;
+          const modalTrailer = basicLightbox.create(`
+            <iframe width="516" class="trailer_iframe" height="315" src='${link}' frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <button class="trailer_close">
+                    <svg >
+                        <use href="../images/icons/sprite.svg#icon-close" />
+                    </svg>
+                </button>
+            `);
+          modalTrailer.show()
+          document.querySelector('.trailer_close').addEventListener('click',()=>{modalTrailer.close()})
+        })
+        .catch(() => {
+          Notify.failure('This film has no one trailer :(',{
+            showOnlyTheLastOne: true,
+          });
+        });
+    }  
+   )
+
     const modalClose = document.querySelector('.modal_close');
     document.addEventListener('keydown', closeModal);
     modalClose.addEventListener('click', closeModal);
@@ -76,8 +99,11 @@ function createModal(id) {
   }
 
 function openModal(e) {
-   if (e.target.classList.contains('movie__img') || e.target.classList.contains('movie__title') ) {
-     createModal(document.querySelector('.movie').dataset.id)
+   if (e.target.nodeName === "IMG" || e.target.nodeName === "H2") {
+    //  createModal(document.querySelector('.movie').dataset.id)
+     createModal(e.target.parentElement.parentElement.dataset.id)
+    //  console.log(e.currentTarget.nodeName.children[1])
+    //  console.log(e.target.parentElement.parentElement.dataset.id)
   }
 }
 

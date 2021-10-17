@@ -20,6 +20,28 @@
     top: -100px;
   }
 }
+.trailer_iframe {
+  position: relative;
+  margin-top: 30%;
+  @media screen and (max-width: 516px) {
+    width: 90vw;
+  }
+}
+.trailer_close {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid orange;
+  @media screen and(max-width: 516px) {
+    margin: 20% -20px;
+  }
+
+  @media screen and (min-width: 517px) {
+    top: 120px;
+    right: 0;
+  }
+}
+
 .modal_img {
   display: block;
   width: 100%;
