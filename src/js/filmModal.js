@@ -3,6 +3,7 @@ import '../../node_modules/basiclightbox/dist/basicLightbox.min.css';
 import modalTmp from '../templates/filmModal';
 import FilmsAPI from '../js/fetchFilmClass';
 import library from './library-api';
+import renderFilms from './renderFilmsClass';
 
 const filmModalOpen = document.querySelector('.list-movies');
 const modalClose = document.querySelector('.modal_close');
@@ -10,8 +11,11 @@ const overlay = document.querySelector('.overlay');
 const modalContent = document.querySelector('.modal_content');
 const watchedBtn = document.querySelector('.add_to_watched');
 const queueBtn = document.querySelector('.add_to_queue');
+const isLibraryHtml = location.pathname.includes('library.html');
 
-const instance = basicLightbox.create(overlay);
+const instance = basicLightbox.create(overlay, {
+  onClose: onModalClose,
+});
 
 function renderModalContent(film) {
   const modalMarkup = modalTmp(film);
@@ -67,4 +71,10 @@ function onModalClick(e) {
   const action = e.target.dataset.action;
 
   library.addOrRemoveFilmsFromLs(filmId, action);
+}
+
+function onModalClose() {
+  if (!isLibraryHtml) return;
+  const list = document.querySelector('[data-list].active').dataset.list;
+  renderFilms.renderMoviesFromViewedOrQueue(list);
 }
