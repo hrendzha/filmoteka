@@ -1,4 +1,9 @@
 <div class='modal'>
+    <button class="modal_close">
+        <svg class="icon-modal-close">
+            <use href="../images/icons/sprite.svg#icon-close" />
+        </svg>
+    </button>
     <img class="modal_img" src="https://image.tmdb.org/t/p/w500{{poster_path}}" alt="{{original_title}}" />
     <div class="text_content">
         <h1 class="text_content__name">{{title}}</h1>
@@ -44,9 +49,9 @@
         </a>
         <p>{{overview}}</p>
         <div class="modal_buttons" data-id={{id}}>
-            <input type='button' class='add_to_watched' data-action=“add to watched” value='Add to watched' />
-            <input type='button' class='add_to_queue' data-action=“add to queue” value='Add to queue' />
+            <input type='button' class='add_to_watched button' data-action=“add to watched” value='Add to watched' />
+            <input type='button' class='add_to_queue button' data-action=“add to queue” value='Add to queue' />
         </div>
     </div>
-  </div>
+</div>
 </div>
