@@ -42,7 +42,7 @@ class FilmsAPI {
         `${this.baseURL}/movie/${id}/videos?api_key=${this.key}&language=en-US`,
       );
       const trailersdata = response.data.results;
-      const trailer = `https://www.youtube.com/watch?v=${trailersdata[0].key}`;
+      const trailer = `https://www.youtube.com/embed/${trailersdata[0].key}`;
       return trailer;
     } catch (error) {
       console.log(error);
