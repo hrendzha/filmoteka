@@ -66,33 +66,23 @@ function createModal(id) {
             watchedBtn.classList.remove('add_to_watched');
           } else {
               if (e.target.classList.contains('added_to_w')) {
-                watchedBtn.value = 'Removed';
-                watchedBtn.classList.add('remove_from_w');
+                watchedBtn.value = 'Added';
+                watchedBtn.classList.add('add_to_watched');
                 watchedBtn.classList.remove('added_to_w');
-              } else {
-                if (e.target.classList.contains('remove_from_w')) {
-                  watchedBtn.value = 'Add to watched';
-                  watchedBtn.classList.add('add_to_watched');
-                  watchedBtn.classList.remove('remove_from_w');
-                }
-            }
+              } 
           }
           if (e.target.classList.contains('add_to_queue')) {
-            queueBtn.value = 'Added to queue';
+            queueBtn.value = 'Added';
             queueBtn.classList.add('added_to_q');
             queueBtn.classList.remove('add_to_queue');
           }  else {
             if (e.target.classList.contains('added_to_q')) {
-              queueBtn.value = 'Removed';
-              queueBtn.classList.add('remove_from_q');
+              queueBtn.value = 'Add to queue';
+              queueBtn.classList.add('add_to_queue');
               queueBtn.classList.remove('added_to_q');
-            } else {
-              if (e.target.classList.contains('remove_from_q')) {
-                    queueBtn.value = 'Add to queue';
-                    queueBtn.classList.add('add_to_queue');
-                    queueBtn.classList.remove('remove_from_q');
-              }
-            }
+            } 
+        
+          
           }
           }
     watchedBtn.addEventListener('click', changeBtnValue)
@@ -102,10 +92,7 @@ function createModal(id) {
 
 function openModal(e) {
    if (e.target.nodeName === "IMG" || e.target.nodeName === "H2") {
-    //  createModal(document.querySelector('.movie').dataset.id)
-     createModal(e.target.parentElement.parentElement.dataset.id)
-    //  console.log(e.currentTarget.nodeName.children[1])
-    //  console.log(e.target.parentElement.parentElement.dataset.id)
+     createModal(e.target.closest('.movie').dataset.id)
   }
 }
 
