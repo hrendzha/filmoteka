@@ -58,7 +58,8 @@
   width: 100%;
   background: none;
   @media screen and (min-width: 768px) {
-    justify-content: space-between;
+    // justify-content: space-between;
+    width: 275px;
   }
   @media screen and (min-width: 1024px) {
     width: 295px;
@@ -68,6 +69,30 @@
   background: none;
   color: $white-color;
   border-color: $white-color;
+
+  &.active {
+    background-color: $accent-color;
+    border: 0;
+  }
+  // &:hover {
+  //   &:not(.active) {
+  //     background: #ff6b01;
+  //     border-color: #ff6b01;
+  //     color: ffffff;
+  //   }
+  // }
+  // &.inactive {
+  //   background: transparent;
+  //   text-decoration: none;
+  //   border: 2px solid #ffffff;
+  //   outline: 5px;
+  // }
+
+  // &:not(.active) {
+  //   background: $accent-color;
+  //   border-color: #ff6b01;
+  //   color: $white-color;
+  // }
 }
 .watched-btn,
 .queue-btn {

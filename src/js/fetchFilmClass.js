@@ -7,7 +7,9 @@ class FilmsAPI {
   }
   async getTrending(page) {
     try {
-      const response = await axios.get(`${this.baseURL}/trending/movie/day?api_key=${this.key}&page=${page}`);
+      const response = await axios.get(
+        `${this.baseURL}/trending/movie/day?api_key=${this.key}&page=${page}`,
+      );
       const trending = response.data;
       return trending;
     } catch (error) {
@@ -23,10 +25,11 @@ class FilmsAPI {
       console.log(error);
     }
   }
-  async getFilmsByQuery(query,page) {
+  async getFilmsByQuery(query, page) {
     try {
       const response = await axios.get(
-        `${this.baseURL}/search/movie?api_key=${this.key}&query=${query}&page=${page}`);
+        `${this.baseURL}/search/movie?api_key=${this.key}&query=${query}&page=${page}`,
+      );
       const films = response.data;
       return films;
     } catch (error) {
@@ -56,6 +59,3 @@ class FilmsAPI {
   }
 }
 export default new FilmsAPI('e51fa7aa1819bb081f9c2dbbae1f5e9d');
-
-
-

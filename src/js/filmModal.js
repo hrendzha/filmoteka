@@ -3,8 +3,10 @@ import '../../node_modules/basiclightbox/dist/basicLightbox.min.css';
 import modalTmp from '../templates/filmModal';
 import FilmsAPI from '../js/fetchFilmClass';
 import library from './library-api';
+import renderFilms from './renderFilmsClass';
 
 const filmModalOpen = document.querySelector('.list-movies');
+const isLibraryHtml = location.pathname.includes('library.html');
 
 function createModal(id) {
   FilmsAPI.getFilmById(id).then(result => {
@@ -115,4 +117,10 @@ function onModalClick(e) {
   const action = e.target.dataset.action;
 
   library.addOrRemoveFilmsFromLs(filmId, action);
+}
+
+function onModalClose() {
+  if (!isLibraryHtml) return;
+  const list = document.querySelector('[data-list].active').dataset.list;
+  renderFilms.renderMoviesFromViewedOrQueue(list);
 }
