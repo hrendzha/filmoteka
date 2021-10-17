@@ -102,10 +102,7 @@ function createModal(id) {
 
 function openModal(e) {
    if (e.target.nodeName === "IMG" || e.target.nodeName === "H2") {
-    //  createModal(document.querySelector('.movie').dataset.id)
-     createModal(e.target.parentElement.parentElement.dataset.id)
-    //  console.log(e.currentTarget.nodeName.children[1])
-    //  console.log(e.target.parentElement.parentElement.dataset.id)
+     createModal(e.target.closest('.movie').dataset.id)
   }
 }
 
