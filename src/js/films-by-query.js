@@ -36,7 +36,7 @@ function searcheHandler(e) {
         pagination.reset(r.total_results);
         pagination.on('afterMove', event => {
             const currentPage = event.page;
-        
+            window.scrollTo({ top: 0, behavior: 'smooth' });
             filmsRender.renderMoviesByQuery(normalizedQuery,currentPage);
         });
         
