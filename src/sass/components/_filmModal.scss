@@ -141,6 +141,14 @@
 }
 .text_content__info {
   margin-top: 20px;
+  width: 100%;
+
+  @media screen and (min-width: 768px) {
+    width: 80%;
+  }
+  @media screen and (min-width: 1024px) {
+    width: 70%;
+  }
 }
 .text_content__trow {
   font-size: 12px;
@@ -151,10 +159,10 @@
 .text_content__slash {
   color: $card-grey-color;
 }
-.text_content__data:nth-child(odd) {
-  margin-right: 40px;
+.text_content__data {
   margin-bottom: 10px;
   display: inline-block;
+  width: 50%;
 }
 
 .text_content__data:nth-child(even) {
