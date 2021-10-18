@@ -100,4 +100,4 @@ const o={openFooterModal:document.querySelector('[data-action="open-lightbox"]')
 },{}],"I9BA":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/filmModal"),require("./js/scroll-to-top-btn"),require("./js/footer-modal.js");var e=r(require("./js/renderFilmsClass")),t=r(require("./js/refs"));function r(e){return e&&e.__esModule?e:{default:e}}function s(t){if("BUTTON"!==t.target.nodeName)return;const r=t.target.dataset.list;e.default.renderMoviesFromViewedOrQueue(r),a(r)}function a(e){if("watched"===e)return t.default.watchedBtn.classList.add("active"),void t.default.queueBtn.classList.remove("active");t.default.queueBtn.classList.add("active"),t.default.watchedBtn.classList.remove("active")}e.default.renderMoviesFromViewedOrQueue("watched"),t.default.libraryBtnsContainer.addEventListener("click",s);
 },{"./sass/main.scss":"clu1","./js/filmModal":"kkpu","./js/scroll-to-top-btn":"Gdub","./js/footer-modal.js":"zUU9","./js/renderFilmsClass":"cdUA","./js/refs":"VyiV"}]},{},["I9BA"], null)
-//# sourceMappingURL=/filmoteka/js/library.0f135277.js.map
+//# sourceMappingURL=/filmoteka/js/library.dde01fd6.js.map

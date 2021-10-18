@@ -111,4 +111,4 @@ const o={openFooterModal:document.querySelector('[data-action="open-lightbox"]')
 },{}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/pagination"),require("./js/filmModal"),require("./js/films-by-query"),require("./js/scroll-to-top-btn"),require("./js/footer-modal.js");
 },{"./sass/main.scss":"clu1","./js/pagination":"o8lo","./js/filmModal":"kkpu","./js/films-by-query":"It30","./js/scroll-to-top-btn":"Gdub","./js/footer-modal.js":"zUU9"}]},{},["Focm"], null)
-//# sourceMappingURL=/filmoteka/js/src.62dce170.js.map
+//# sourceMappingURL=/filmoteka/js/src.82eaef63.js.map
