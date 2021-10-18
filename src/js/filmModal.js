@@ -4,6 +4,7 @@ import modalTmp from '../templates/filmModal';
 import FilmsAPI from '../js/fetchFilmClass';
 import library from './library-api';
 import renderFilms from './renderFilmsClass';
+import storage from './local-storage';
 
 const filmModalOpen = document.querySelector('.list-movies');
 const isLibraryHtml = location.pathname.includes('library.html');
@@ -64,26 +65,29 @@ function createModal(id) {
     }
     const watchedBtn = document.querySelector('.add_to_watched');
     const queueBtn = document.querySelector('.add_to_queue');
+    changeBtnValue();
     function changeBtnValue(e) {
-      addOrRemoveFilmsLs(e);
+      e && addOrRemoveFilmsLs(e);
+      const isMovieInWatched = storage.load(storage.LS_KEYS.watched)?.includes(id);
+      const isMovieInQueue = storage.load(storage.LS_KEYS.queue)?.includes(id);
 
-      if (e.target.classList.contains('add_to_watched')) {
-        watchedBtn.value = 'Added';
+      if (e?.target.classList.contains('add_to_watched') || isMovieInWatched) {
+        watchedBtn.value = 'Added to watched';
         watchedBtn.classList.add('added_to_w');
         watchedBtn.classList.remove('add_to_watched');
       } else {
-        if (e.target.classList.contains('added_to_w')) {
+        if (e?.target.classList.contains('added_to_w')) {
           watchedBtn.value = 'Add to watched';
           watchedBtn.classList.add('add_to_watched');
           watchedBtn.classList.remove('added_to_w');
         }
       }
-      if (e.target.classList.contains('add_to_queue')) {
-        queueBtn.value = 'Added';
+      if (e?.target.classList.contains('add_to_queue') || isMovieInQueue) {
+        queueBtn.value = 'Added to queue';
         queueBtn.classList.add('added_to_q');
         queueBtn.classList.remove('add_to_queue');
       } else {
-        if (e.target.classList.contains('added_to_q')) {
+        if (e?.target.classList.contains('added_to_q')) {
           queueBtn.value = 'Add to queue';
           queueBtn.classList.add('add_to_queue');
           queueBtn.classList.remove('added_to_q');
