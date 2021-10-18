@@ -62,7 +62,7 @@ class RenderFilms {
           film.genre = genres;
         }
       }
-      film.release_date = film.release_date.slice(0, 4);
+      film.release_date = film.release_date?.slice(0, 4);
       return film;
     });
     const doneResult = await Promise.all(genre);

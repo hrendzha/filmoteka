@@ -2,13 +2,23 @@
   <li class='list-movies__block'>
     <article class='movie' data-id='{{id}}'>
       <div class='img-thumb'>
-        <img
-          class='movie__img'
-          src='https://image.tmdb.org/t/p/w342{{poster_path}}'
-          alt='poster-{{title}}'
-          width='280'
-          height='420'
-        />
+        {{#if poster_path}}
+          <img
+            class='movie__img'
+            src='https://image.tmdb.org/t/p/w342{{poster_path}}'
+            alt='poster-{{title}}'
+            width='280'
+            height='420'
+          />
+        {{else}}
+          <img
+            class='movie__img'
+            src='https://dummyimage.com/280x420/556271/000&text=Sorry+no+image'
+            alt='placeholder'
+            width='280'
+            height='420'
+          />
+        {{/if}}
       </div>
       <h2 class='movie__title'>{{title}}</h2>
       <span class='movie__description'> {{#each genre}}{{this}} {{/each}} | {{release_date}}</span>

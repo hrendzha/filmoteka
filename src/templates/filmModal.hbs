@@ -1,53 +1,69 @@
 <div class='modal'>
-    <button class="modal_close">
-        <span class="material-icons"> close </span>
-    </button>
-    <img class="modal_img" src="https://image.tmdb.org/t/p/w500{{poster_path}}" alt="{{original_title}}" />
-    <div class="text_content">
-        <h1 class="text_content__name">{{title}}</h1>
-        <table class="text_content__info">
-            <tr class="text_content__trow">
-                <td class="text_content__data">Vote / Votes</td>
-                <td class="text_content__data">
-                    <span class="text_content__rate">{{vote_average}}</span>
-                    <span class="text_content__slash">/</span>
-                    <span class="text_content__rate">{{vote_count}}</span>
-                </td>
-            </tr>
-            <tr class="text_content__trow">
-                <td class="text_content__data">Popularity</td>
-                <td class="text_content__data">{{popularity}}</td>
-            </tr>
-            <tr class="text_content__trow">
-                <td class="text_content__data">Original Titles</td>
-                <td class="text_content__data">{{title}}</td>
-            </tr>
-            <tr class="text_content__trow">
-                <td class="text_content__data">Genre</td>
-                <td class="text_content__data ">
-                    {{#each genres}}
-                    <span class='genres'>{{this.name}}</span>
+  <button class='modal_close'>
+    <span class='material-icons'> close </span>
+  </button>
+  {{#if poster_path}}
+    <img class='modal_img' src='https://image.tmdb.org/t/p/w500{{poster_path}}' alt='{{title}}' />
+  {{else}}
+    <img
+      class='modal_img'
+      src='https://dummyimage.com/280x420/556271/000&text=Sorry+no+image'
+      alt='placeholder'
+    />
+  {{/if}}
+  <div class='text_content'>
+    <h1 class='text_content__name'>{{title}}</h1>
+    <table class='text_content__info'>
+      <tr class='text_content__trow'>
+        <td class='text_content__data'>Vote / Votes</td>
+        <td class='text_content__data'>
+          <span class='text_content__rate'>{{vote_average}}</span>
+          <span class='text_content__slash'>/</span>
+          <span class='text_content__rate'>{{vote_count}}</span>
+        </td>
+      </tr>
+      <tr class='text_content__trow'>
+        <td class='text_content__data'>Popularity</td>
+        <td class='text_content__data'>{{popularity}}</td>
+      </tr>
+      <tr class='text_content__trow'>
+        <td class='text_content__data'>Original Titles</td>
+        <td class='text_content__data'>{{title}}</td>
+      </tr>
+      <tr class='text_content__trow'>
+        <td class='text_content__data'>Genre</td>
+        <td class='text_content__data'>
+          {{#each genres}}
+            <span class='genres'>{{this.name}}</span>
 
-                    {{/each}}
-                </td>
-            </tr>
-        </table>
-        <h2 class="overview_title">About</h2>
-        <a href="#" class="trailer"> Watch trailer
-
-            <svg height="20" class='youtube-icon' viewBox="0 -77 512.00213 512" width="20">
-                <path
-                    d="m501.453125 56.09375c-5.902344-21.933594-23.195313-39.222656-45.125-45.128906-40.066406-10.964844-200.332031-10.964844-200.332031-10.964844s-160.261719 0-200.328125 10.546875c-21.507813 5.902344-39.222657 23.617187-45.125 45.546875-10.542969 40.0625-10.542969 123.148438-10.542969 123.148438s0 83.503906 10.542969 123.148437c5.90625 21.929687 23.195312 39.222656 45.128906 45.128906 40.484375 10.964844 200.328125 10.964844 200.328125 10.964844s160.261719 0 200.328125-10.546875c21.933594-5.902344 39.222656-23.195312 45.128906-45.125 10.542969-40.066406 10.542969-123.148438 10.542969-123.148438s.421875-83.507812-10.546875-123.570312zm0 0" />
-                <path d="m204.96875 256 133.269531-76.757812-133.269531-76.757813zm0 0" fill="#fff" />
-            </svg>
-
-
-        </a>
-        <p>{{overview}}</p>
-        <div class="modal_buttons js-modal_buttons" data-id={{id}}>
-            <input type='button' class='add_to_watched button' data-action='add to watched' value='Add to watched' />
-            <input type='button' class='add_to_queue button' data-action='add to queue' value='Add to queue' />
-        </div>
+          {{/each}}
+        </td>
+      </tr>
+    </table>
+    <h2 class='overview_title'>About</h2>
+    <a href='#' class='trailer'>
+      Watch trailer
+      <svg height='20' class='youtube-icon' viewBox='0 -77 512.00213 512' width='20'>
+        <path
+          d='m501.453125 56.09375c-5.902344-21.933594-23.195313-39.222656-45.125-45.128906-40.066406-10.964844-200.332031-10.964844-200.332031-10.964844s-160.261719 0-200.328125 10.546875c-21.507813 5.902344-39.222657 23.617187-45.125 45.546875-10.542969 40.0625-10.542969 123.148438-10.542969 123.148438s0 83.503906 10.542969 123.148437c5.90625 21.929687 23.195312 39.222656 45.128906 45.128906 40.484375 10.964844 200.328125 10.964844 200.328125 10.964844s160.261719 0 200.328125-10.546875c21.933594-5.902344 39.222656-23.195312 45.128906-45.125 10.542969-40.066406 10.542969-123.148438 10.542969-123.148438s.421875-83.507812-10.546875-123.570312zm0 0'
+        ></path>
+        <path d='m204.96875 256 133.269531-76.757812-133.269531-76.757813zm0 0' fill='#fff'></path>
+      </svg>
+    </a>
+    <p>{{overview}}</p>
+    <div class='modal_buttons js-modal_buttons' data-id={{id}}>
+      <input
+        type='button'
+        class='add_to_watched button'
+        data-action='add to watched'
+        value='Add to watched'
+      />
+      <input
+        type='button'
+        class='add_to_queue button'
+        data-action='add to queue'
+        value='Add to queue'
+      />
     </div>
-</div>
+  </div>
 </div>
