@@ -12,6 +12,7 @@ refs.openFooterModal.addEventListener('click', onOpenModal);
 function onOpenModal() {
     window.addEventListener('keydown', onEscClick);
     refs.lightboxFooterModal.classList.remove('visually-hidden');
+    document.querySelector('body').style.overflow = 'hidden';
 }
 
 //close modal - button (icon)
@@ -21,18 +22,19 @@ refs.closeFooterModal.addEventListener('click', onCloseModal);
 function onCloseModal() {
     window.removeEventListener('keydown', onEscClick);
     refs.lightboxFooterModal.classList.add('visually-hidden');
+    document.querySelector('body').style.overflow = 'auto';
 }
 
 //close modal - backdrop
 
 refs.backdropClick.addEventListener('click', onBackdropClick);
+document.querySelector('body').style.overflow = 'auto';
 
 function onBackdropClick(event) {
     if (event.currentTarget === event.target) {
         onCloseModal();
     }
-    console.log('click backdrop');
-}
+   }
 
 //close modal = esc
 
