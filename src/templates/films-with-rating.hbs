@@ -5,10 +5,12 @@
         <img
           class='movie__img'
           src='https://image.tmdb.org/t/p/w342{{poster_path}}'
-          alt='poster-{{original_title}}'
+          alt='poster-{{title}}'
+          width='280'
+          height='420'
         />
       </div>
-      <h2 class='movie__title'>{{original_title}}</h2>
+      <h2 class='movie__title'>{{title}}</h2>
       <span class='movie__description'>
         {{#each genre}}{{this}} {{/each}}
         |
