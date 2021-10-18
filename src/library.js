@@ -1,6 +1,7 @@
 import './sass/main.scss';
 import './js/filmModal';
 import './js/scroll-to-top-btn';
+import './js/footer-modal.js';
 import renderFilms from './js/renderFilmsClass';
 import refs from './js/refs';
 
