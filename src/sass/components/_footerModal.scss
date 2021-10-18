@@ -178,14 +178,14 @@
   background-repeat: no-repeat;
 
   @media screen and (max-width: 479px) {
-    right: calc(50% - 165px);
+    right: calc(50% - 145px);
   }
   @media screen and (min-width: 480px) {
-    right: calc(50% - 180px);
+    right: calc(50% - 140px);
   }
 
   @media screen and (min-width: 768px) {
-    right: calc(50% - 300px);
+    right: calc(50% - 240px);
   }
 
   @media screen and (min-width: 1024px) {
