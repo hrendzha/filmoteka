@@ -52,7 +52,7 @@ function loadPage(currentPage) {
 function moveEvent() {
     pagination.on('afterMove', event => {
         const currentPage = event.page;
-        
+        window.scrollTo({ top: 0, behavior: 'smooth' });
         localStorage.setItem('page', currentPage);
         filmsRender.renderTrendingMovies(currentPage);
 });
