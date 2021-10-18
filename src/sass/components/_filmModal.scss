@@ -93,6 +93,9 @@
   width: 112px;
   height: 44px;
   font-size: 11px;
+
+  cursor: pointer;
+
   @media screen and (min-width: 768px) {
     font-size: 12px;
     width: 145px;
@@ -204,4 +207,10 @@
   margin: 20px 0 10px 0;
   font-size: 12px;
   line-height: 16px;
+}
+
+.added_to_w,
+.added_to_q {
+  background-color: $accent-color;
+  border: none;
 }
