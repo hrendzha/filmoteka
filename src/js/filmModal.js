@@ -28,9 +28,7 @@ function createModal(id) {
           const modalTrailer = basicLightbox.create(`
             <iframe width="516" class="trailer_iframe" height="315" src='${link}' frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <button class="trailer_close">
-                    <svg >
-                        <use href="../images/icons/sprite.svg#icon-close" />
-                    </svg>
+                   <span class="material-icons"> close </span>
                 </button>
             `);
           modalTrailer.show();
@@ -49,7 +47,7 @@ function createModal(id) {
     document.addEventListener('keydown', closeModal);
     modalClose.addEventListener('click', closeModal);
     function closeModal(e) {
-      if (e.key === 'Escape' || e.target.classList.contains('icon-modal-close')) {
+      if (e.key === 'Escape' || e.target.classList.contains('material-icons')) {
         modal.close();
         document.removeEventListener('keydown', closeModal);
         modalClose.removeEventListener('click', closeModal);
