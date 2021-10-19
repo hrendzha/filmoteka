@@ -5,9 +5,18 @@ import filmsRender from './renderFilmsClass';
 
 const container = document.getElementById('tui-pagination-container');
 const searchInput = document.querySelector('.form-search');
-const pagination = new Pagination(container, {
-    itemsPerPage: 20,
-    visiblePages: 7,
+
+// const pagination = new Pagination(container, {
+//     itemsPerPage: 20,
+//     visiblePages: 7,
+// });
+const windowInnerWidth = document.documentElement.clientWidth;
+const pointBreak = 390;
+let pageVisible = 7;
+if(windowInnerWidth < pointBreak) pageVisible = 3;
+let pagination = new Pagination(container, {
+            itemsPerPage: 20,
+            visiblePages: pageVisible,
 });
 
 searchInput.addEventListener('submit', searcheHandler);

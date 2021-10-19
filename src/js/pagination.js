@@ -6,7 +6,7 @@ import 'tui-pagination/dist/tui-pagination.min.css';
 const container = document.getElementById('tui-pagination-container');
 
 const windowInnerWidth = document.documentElement.clientWidth;
-const pointBreak = 370;
+const pointBreak = 390;
 let pageVisible = 7;
 if(windowInnerWidth < pointBreak) pageVisible = 3;
 let pagination = new Pagination(container, {
