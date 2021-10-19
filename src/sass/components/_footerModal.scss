@@ -23,7 +23,6 @@
   display: inline-block;
   height: 100vh;
   border-radius: 4px;
-
   overflow-y: auto;
 
   @media screen and (max-width: 479px) {
@@ -31,18 +30,18 @@
   }
 
   @media screen and (min-width: 480px) {
-    width: 350px;
+    width: 300px;
   }
 
   @media screen and (min-width: 768px) {
-    width: 500px;
+    width: 560px;
     height: 700px;
     padding-left: 60px;
     padding-right: 60px;
   }
 
   @media screen and (min-width: 1024px) {
-    width: 950px;
+    width: 800px;
     height: 640px;
     padding-left: 45px;
     padding-right: 45px;
@@ -73,7 +72,7 @@
     grid-template-rows: 1fr;
     // grid-template-columns: 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr;
-    grid-gap: 4vw;
+    grid-gap: 2vw;
   }
 
   @media screen and (min-width: 1024px) {
@@ -94,34 +93,45 @@
   object-fit: cover;
   height: 200px;
   margin: auto;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
 .team-name {
   font-style: normal;
   font-weight: 500;
-  font-size: 19px;
-  line-height: 35px;
-
-  margin-bottom: 5px;
-
+  font-size: 16px;
+  line-height: 30px;
   color: black;
 }
 
 .contacts-link-type {
   font-weight: 500;
-  font-size: 18px;
+  font-size: 14px;
   line-height: 16px;
   color: #ff6b01;
 }
+.team-item {
+  transform: scale(1);
+  transition: transform 0.2s ease;
 
+  @media screen and (max-width: 767px) {
+    margin-bottom: 20px;
+  }
+}
+.team-item:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s ease;
+}
 .modal-links {
   margin-top: 20px;
+  padding: 0 60px;
   display: flex;
-  justify-content: center;
+  @media screen and (min-width: 768px) {
+    padding: 0 40px;
+  }
 
   @media screen and (min-width: 1024px) {
-    // grid-gap: 1vw;
+    padding: 0 50px;
   }
 }
 
@@ -153,9 +163,7 @@
 .button-close {
   position: fixed;
   display: flex;
-
   right: calc(50% - 157.5px);
-
   width: 35px;
   height: 35px;
   border-radius: 50%;
@@ -185,11 +193,11 @@
   }
 
   @media screen and (min-width: 768px) {
-    right: calc(50% - 240px);
+    right: calc(50% - 260px);
   }
 
   @media screen and (min-width: 1024px) {
-    right: calc(50% - 450px);
+    right: calc(50% - 380px);
   }
 
   &:hover,
