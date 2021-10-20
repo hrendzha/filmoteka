@@ -1,4 +1,5 @@
 import axios from 'axios';
+import spinner from './spinnerClass';
 
 class FilmsAPI {
   constructor(key) {
@@ -6,10 +7,12 @@ class FilmsAPI {
     this.key = key;
   }
   async getTrending(page) {
+    spinner.startSpinner();
     try {
       const response = await axios.get(
         `${this.baseURL}/trending/movie/day?api_key=${this.key}&page=${page}`,
       );
+      spinner.removeSpinner();
       const trending = response.data;
       return trending;
     } catch (error) {
@@ -17,8 +20,10 @@ class FilmsAPI {
     }
   }
   async getFilmById(filmId) {
+    spinner.startSpinner();
     try {
       const response = await axios.get(`${this.baseURL}/movie/${filmId}?api_key=${this.key}`);
+      spinner.removeSpinner();
       const film = response.data;
       return film;
     } catch (error) {
@@ -26,10 +31,12 @@ class FilmsAPI {
     }
   }
   async getFilmsByQuery(query, page) {
+    spinner.startSpinner();
     try {
       const response = await axios.get(
         `${this.baseURL}/search/movie?api_key=${this.key}&query=${query}&page=${page}`,
       );
+      spinner.removeSpinner();
       const films = response.data;
       return films;
     } catch (error) {
@@ -37,10 +44,12 @@ class FilmsAPI {
     }
   }
   async getFilmTrailers(id) {
+    spinner.startSpinner();
     try {
       const response = await axios.get(
         `${this.baseURL}/movie/${id}/videos?api_key=${this.key}&language=en-US`,
       );
+      spinner.removeSpinner();
       const trailersdata = response.data.results;
       const trailer = `https://www.youtube.com/embed/${trailersdata[0].key}`;
       return trailer;
@@ -49,8 +58,10 @@ class FilmsAPI {
     }
   }
   async getGenresByFilmId(filmId) {
+    spinner.startSpinner();
     try {
       const response = await axios.get(`${this.baseURL}/movie/${filmId}?api_key=${this.key}`);
+      spinner.removeSpinner();
       const genres = response.data.genres;
       return genres;
     } catch (error) {
