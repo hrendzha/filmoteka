@@ -1,23 +1,22 @@
 .modal {
   position: absolute;
+  top: 50%;
   left: 50%;
   z-index: 3000;
   margin-bottom: 100px;
-  transform: translate(-50%, -28%) scale(1);
+  transform: translate(-50%, -50%) scale(1);
   padding: 48px 20px 10px;
   background: $white-color;
   @media (min-width: 768px) and (max-width: 1023px) {
     width: 640px;
     padding: 42px 28px 20px;
     display: flex;
-    top: -80px;
   }
   @media screen and (min-width: 1024px) {
     width: 882px;
     // height: 568px;
     padding: 50px 30px 40px;
     display: flex;
-    top: -100px;
   }
 }
 .trailer_iframe {
