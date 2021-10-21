@@ -1,32 +1,20 @@
-import throttle from 'lodash.throttle';
+const offset = 200;
+const scrollUp = document.querySelector('.scroll-up');
 
-export default class ScrollToTopBtn {
-  constructor(selector) {
-    this.btnRef = document.querySelector(selector);
-    this.lastScrollTop = 0;
-  }
+const getTop = () => document.documentElement.scrollTop;
 
-  onScroll() {
-    const scrollTop = document.documentElement.scrollTop;
+window.addEventListener('scroll', () => {
 
-    if (scrollTop < 500 || scrollTop > this.lastScrollTop) {
-      this.btnRef.classList.remove('show');
+    if (getTop() > offset) {
+        scrollUp.classList.add('scroll-up--active');
     } else {
-      this.btnRef.classList.add('show');
+        scrollUp.classList.remove('scroll-up--active');
     }
+})
 
-    this.lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-  }
-
-  onScrollToTopBtnClick() {
+scrollUp.addEventListener('click', () => {
     window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-  }
-}
-
-const scrollToTopBtn = new ScrollToTopBtn('.scrollToTopBtn');
-
-document.addEventListener('scroll', throttle(scrollToTopBtn.onScroll.bind(scrollToTopBtn), 250));
-scrollToTopBtn.btnRef.addEventListener('click', scrollToTopBtn.onScrollToTopBtnClick);
+        top: 0,
+        behavior: 'smooth'
+    })
+})
