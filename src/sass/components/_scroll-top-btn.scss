@@ -1,24 +1,57 @@
-.scrollToTopBtn {
+.scroll-up {
   position: fixed;
-  bottom: 1.3rem;
-  right: 1.3rem;
-  z-index: 100;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 3rem;
-  height: 3rem;
-
-  // border: none;
-  border-radius: 50%;
+  right: 50px;
+  bottom: 50px;
+  z-index: 1000;
+  width: 50px;
+  height: 50px;
+  color: #dcdcdc;
+  cursor: pointer;
+  visibility: hidden;
+  border-radius: 50px;
+  box-shadow: inset 0 0 0 3px #dcdcdc;
   opacity: 0;
-  transform: scale(0);
-  transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1),
-    opacity 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 0.2s;
+  transform: translateY(25px);
+}
 
-  &.show {
-    opacity: 1;
-    transform: scale(1);
-  }
+.scroll-up::before {
+  position: absolute;
+  top: -1px;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  font-size: 22px;
+  content: '↑';
+  overflow: visible;
+}
+
+.scroll-up:hover {
+  color: $accent-color;
+}
+
+.scroll-up--active {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-up__svg {
+  position: absolute;
+  overflow: visible;
+  left: 1px;
+  top: 1px;
+  width: 50px;
+  height: 50px;
+}
+
+.scroll-up__svg-path {
+  box-sizing: border-box;
+  fill: none;
+  stroke: $accent-color;
+  stroke-width: 4px;
+  transition: 0.2s;
 }

@@ -13,6 +13,15 @@
   }
 }
 
+.list-movies__block {
+  transition: transform 0.2s;
+}
+
+.list-movies__block:hover {
+  transform: scale(1.01);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
 .movies {
   padding-top: 20px;
   padding-bottom: 40px;
